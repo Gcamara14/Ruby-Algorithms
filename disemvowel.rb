@@ -1,14 +1,9 @@
 def disemvowel(string)
-  i = 0
-  while i < string.length
-    if string[i] == string.scan(/[aeiou]/)
-      string.delete_at(i)
-    end
-    i += 1
-  end
-  p string
+  new_string = string.chars
+  new_string.delete_if {|element| "aeiouAEIOU".include?(element)}
+  return new_string.join("")
 end
 
-p disemvowel("foobar")
-p disemvowel("ruby")
-p disemvowel("aeiou")
+p disemvowel("foobar") == "fbr"
+p disemvowel("ruby") == "rby"
+p disemvowel("aeiou") == ""
