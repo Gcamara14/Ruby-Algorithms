@@ -13,6 +13,6 @@ end
 
 
 def factorial1(n)
-  return 1 if n <= 0 
+  return 1 if n <= 0
   n * factorial1(n-1)
 end
