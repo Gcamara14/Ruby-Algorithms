@@ -37,3 +37,17 @@ return sum
 end
 
 p Fibonacci(4000000)
+
+#### THIS IS A REGULAR FIBONNACHI NOT FOR EULER... JUST REGULAR.
+
+  def fibonnachi(n)
+    return [] if n == 0
+    return [1] if n == 1
+
+    fibs = [0,1]
+
+    while fibs.count < n
+      fibs << fibs[-1] + fibs[-2]
+    end
+    return fibs
+  end
