@@ -82,30 +82,55 @@
 # p arr.quicksort
 #
 #
-class Array
-  def quicksort
-    return [] if empty?
+# class Array
+#   def quicksort
+#     return [] if empty?
 
-    #[23,5,45,2,3434,56,34,453,1,2,43,2]
-    #
-    #56 = pivot
-    #left =[23,5,45,2,3434,]
-    #right = [34,453,1,2,43,2]
+#     #[23,5,45,2,3434,56,34,453,1,2,43,2]
+#     #
+#     #56 = pivot
+#     #left =[23,5,45,2,3434,]
+#     #right = [34,453,1,2,43,2]
 
-    pivot = delete_at(rand(size))
+#     pivot = delete_at(rand(size))
 
-    left, right = partition(&pivot.method(:>))
+#     left, right = partition(&pivot.method(:>))
 
-    return *left.quicksort, pivot, *right.quicksort
+#     return *left.quicksort, pivot, *right.quicksort
 
-  end
+#   end
+# end
+
+# arr = [23,5,45,2,3434,56,34,453,1,2,43,2]
+
+# p arr.quicksort
+
+
+
+#============ Shorter Quicksort
+
+# def quicksort(arr)
+#     return arr if arr.length <= 1
+#     pivot = [arr.first]
+#     left_side = arr[1..-1].select {|el| el < arr.first }
+#     right_side = arr[1..-1].select {|el| el >= arr.first}
+#     quicksort(left_side) + pivot + quicksort(right_side)
+# end
+
+
+
+
+
+
+
+
+def quicksort(arr)
+    return arr if arr.length <= 1 
+    pivot = [arr.first]
+    left_side = arr[1..-1].select {|el| el < arr.first}
+    right_side = arr[1..-1].select {|el| el >= arr.first}
+    quicksort(left_side) + pivot + quicksort(right_side)
 end
-
-arr = [23,5,45,2,3434,56,34,453,1,2,43,2]
-
-p arr.quicksort
-
-
 
 
 
